@@ -4,7 +4,7 @@ import Track from './Track';
 const Tracker = () => {
 	const [filteredState, setFilteredState] = useState(null);
 	const [muscleGroup, setMuscleGroup] = useState('Chest');
-	const [exercise, setExercise] = useState('');
+	const [exercise, setExercise] = useState('Bench Press');
 	const [date, setDate] = useState('');
 	const [weight, setWeight] = useState('');
 	const [sets, setSets] = useState('');
