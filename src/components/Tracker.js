@@ -4,21 +4,26 @@ import Track from './Track';
 const Tracker = () => {
 	const [filteredState, setFilteredState] = useState(null);
 	const [muscleGroup, setMuscleGroup] = useState('Chest');
-	const [exercise, setExercise] = useState('Bench Press');
+	const [exercise, setExercise] = useState('');
 	const [date, setDate] = useState('');
 	const [weight, setWeight] = useState('');
 	const [sets, setSets] = useState('');
 	const [reps, setReps] = useState('');
 
 	const [track, setTrack] = useState([]);
-
 	const [error, setError] = useState('');
 
 	const handleSubmit = (e) => {
-		console.log(sets, reps, date, weight);
-		if (sets === '' || reps === '' || date === '' || weight === '') {
+		if (
+			sets === '' ||
+			reps === '' ||
+			date === '' ||
+			weight === '' ||
+			exercise === ''
+		) {
 			e.preventDefault();
 			setError('All fields required.');
+			setTimeout(() => setError(''), 2500);
 			return;
 		}
 		e.preventDefault();
@@ -39,7 +44,7 @@ const Tracker = () => {
 		setReps('');
 		setWeight('');
 		setDate('');
-		setExercise('');
+		setExercise('Bench Press');
 		setMuscleGroup('Chest');
 	};
 
@@ -59,23 +64,32 @@ const Tracker = () => {
 	const selectOnChange = (e) => {
 		if (e.target.value === 'Chest') {
 			setMuscleGroup('Chest');
+			setExercise('Bench press');
 		}
 		if (e.target.value === 'Back') {
 			setMuscleGroup('Back');
+			setExercise('Deadlift');
 		}
 		if (e.target.value === 'Legs') {
 			setMuscleGroup('Legs');
+			setExercise('Barbell squats');
 		}
 		if (e.target.value === 'Tricep') {
 			setMuscleGroup('Tricep');
+			setExercise('Close Grip Bench Press');
 		}
 		if (e.target.value === 'Bicep') {
 			setMuscleGroup('Bicep');
+			setExercise('Dumbell Curls');
+		}
+		if (e.target.value === 'Shoulders') {
+			setMuscleGroup('Shoulders');
+			setExercise('Standing Overhead Barbell Press');
 		}
 	};
+
 	const exerciseOnChange = (e) => {
 		setExercise(e.target.value);
-		console.log(exercise);
 	};
 
 	const repsOnChange = (e) => {
@@ -186,7 +200,13 @@ const Tracker = () => {
 					<form onSubmit={handleSubmit}>
 						<div className="input">
 							<label htmlFor="">Date: </label>
-							<input onChange={dateOnChange} type="date" name="" id="" />
+							<input
+								onChange={dateOnChange}
+								type="date"
+								value={date}
+								name=""
+								id=""
+							/>
 						</div>
 						<div className="input">
 							{' '}
