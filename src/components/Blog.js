@@ -23,8 +23,6 @@ const About = () => {
 		fetchData();
 	}, []);
 
-	console.log(blog);
-
 	return (
 		<div className="blog-container">
 			<h1>Latest fitness news</h1>

@@ -1,14 +1,12 @@
 import React from 'react';
 
 const BlogList = ({ blog, setBlog }) => {
-	console.log(blog);
 	if (blog === null) {
 		return <div className="color">Loading...</div>;
 	} else {
 		return (
 			<>
 				{blog.map((blg) => {
-					console.log(blg);
 					return (
 						<a key={blg.id} rel="noreferrer" target="_blank" href={blg.webUrl}>
 							<div key={blg.id} className="article-container">
