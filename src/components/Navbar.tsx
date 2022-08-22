@@ -4,6 +4,7 @@ import Home from './Home';
 import Tracker from './Tracker.js';
 import Footer from './Footer.js';
 import Blog from './Blog.js';
+import React from 'react';
 
 const Navbar = () => {
 	return (
