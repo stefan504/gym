@@ -1,0 +1,47 @@
+.track-container {
+	background-color: rgba(0, 0, 0, 0.7);
+	border: 2px solid white;
+	box-shadow: 1px 2px 6px rgb(153, 153, 153);
+	display: flex;
+	justify-content: space-between;
+	margin: 30px;
+	padding: 1rem 5rem;
+}
+
+.delete {
+	position: relative;
+	top: 0;
+	left: 115%;
+	cursor: pointer;
+}
+
+.date {
+	display: flex;
+	align-items: flex-end;
+}
+
+.date h3 {
+	padding-left: 1rem;
+	font-size: 10px;
+	text-overflow: none;
+}
+
+.error {
+	color: red;
+	font-size: 0.8rem;
+}
+
+.footer-container {
+	display: flex;
+	justify-content: center;
+	padding: 3rem 0 1rem 0;
+	background: rgb(0, 0, 0);
+
+	box-shadow: 1px 2px 23px 0px rgb(0, 0, 0);
+	color: rgb(212, 212, 212);
+	text-align: center;
+}
+
+.color {
+	color: rgb(226, 48, 48);
+}

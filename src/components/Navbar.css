@@ -1,0 +1,32 @@
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: black;
+
+	padding: 1rem 5%;
+}
+
+.logo-container {
+	background-image: url(/src/img/372.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 90px;
+	height: 70px;
+	color: #fff;
+}
+.list {
+	display: flex;
+	list-style: none;
+}
+.list-items a {
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #fff;
+	font-size: 1.2rem;
+	padding-right: 1rem;
+}
+.list-items a:hover {
+	text-decoration: underline;
+}

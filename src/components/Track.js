@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Track.css';
 const Track = ({ filteredState, track, setTrack }) => {
 	const deleteTrack = (e, id) => {
 		e.preventDefault();

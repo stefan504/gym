@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import BlogList from './BlogList';
-
+import './Blog.css';
 const About = () => {
 	const [blog, setBlog] = useState(null);
 	// const api = {

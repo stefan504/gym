@@ -1,0 +1,59 @@
+.home-container {
+	height: 90vh;
+	background-image: url('/src/img/anastase-maragos-9dzWZQWZMdE-unsplash.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.home-text {
+	position: absolute;
+	top: 40%;
+	left: 20%;
+	color: #fff;
+}
+.home-text h1 {
+	margin: 0;
+	font-size: 4rem;
+}
+
+.button-container {
+	margin-top: 50px;
+}
+
+.button {
+	text-decoration: none;
+	color: rgb(0, 0, 0);
+
+	padding: 1rem;
+	background-color: rgb(255, 255, 255);
+}
+
+.filter {
+	display: flex;
+	align-items: center;
+	width: 90%;
+	overflow: visible;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.filter button {
+	height: 22px;
+	margin: 3px 5px;
+	color: #fff;
+	background-color: rgba(98, 98, 98, 0.4);
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 1.01rem;
+}
+.filter button:hover {
+	background-color: rgba(98, 98, 98, 0.7);
+}
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+#clear {
+	background-color: rgb(216, 48, 48);
+}

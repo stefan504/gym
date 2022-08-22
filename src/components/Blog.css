@@ -1,0 +1,46 @@
+.blog-container {
+	min-height: 70vh;
+	display: flex;
+	flex-direction: column;
+	color: #fff;
+	background-color: black;
+	padding: 0 3rem;
+	text-align: center;
+}
+.blog-container h1 {
+	margin: 0;
+	padding-top: 1rem;
+	padding-bottom: 2rem;
+}
+
+.article {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10px;
+}
+.article a {
+	text-decoration: none;
+}
+.article p {
+	font-size: 0.6rem;
+	color: rgba(255, 255, 255, 0.4);
+}
+.article-container {
+	border: 1px solid white;
+	border-radius: 5px;
+	text-align: center;
+	color: #fff;
+	background-color: black;
+	min-height: 250px;
+}
+.article-container img {
+	width: 100%;
+	filter: brightness(80%);
+	border-radius: 5px;
+}
+.article-container h5 {
+	color: gold;
+}
+.article-container img:hover {
+	filter: brightness(100%);
+}
