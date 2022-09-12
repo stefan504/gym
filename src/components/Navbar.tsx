@@ -1,10 +1,9 @@
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './Navbar.css';
-import Home from './Home';
-import Tracker from './Tracker.js';
-import Footer from './Footer.js';
-import Blog from './Blog.js';
-import React from 'react';
+import Home from './Home/Home';
+import Tracker from './Tracker';
+import Footer from './Footer';
+import Blog from './Blog';
 
 const Navbar = () => {
 	return (

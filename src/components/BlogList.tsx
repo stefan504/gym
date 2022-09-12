@@ -1,19 +1,32 @@
 import React from 'react';
 
-const BlogList = ({ blog, setBlog }) => {
-	if (blog === null) {
+type BlogFields = {
+	id: string;
+	webUrl: string;
+	fields: any;
+	webTitle: string;
+	webPublicationDate: string;
+};
+
+const BlogList = ({ blogs }: { blogs: Array<BlogFields> }) => {
+	if (blogs === null) {
 		return <div className="color">Loading...</div>;
 	} else {
 		return (
 			<>
-				{blog.map((blg) => {
+				{blogs.map((blog) => {
 					return (
-						<a key={blg.id} rel="noreferrer" target="_blank" href={blg.webUrl}>
-							<div key={blg.id} className="article-container">
-								<img src={blg.fields.thumbnail} alt="img" />
-								<h5>{blg.webTitle}</h5>
+						<a
+							key={blog.id}
+							rel="noreferrer"
+							target="_blank"
+							href={blog.webUrl}
+						>
+							<div key={blog.id} className="article-container">
+								<img src={blog.fields.thumbnail} alt="img" />
+								<h5>{blog.webTitle}</h5>
 								<p>
-									<i>{blg.webPublicationDate.slice(0, 7)}</i>
+									<i>{blog.webPublicationDate.slice(0, 7)}</i>
 								</p>
 							</div>
 						</a>

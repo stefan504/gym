@@ -21,11 +21,20 @@
 }
 
 .button {
+	font-weight: 600;
 	text-decoration: none;
 	color: rgb(0, 0, 0);
-
+	border-radius: 2px;
+	margin-left: 1rem;
 	padding: 1rem;
 	background-color: rgb(255, 255, 255);
+}
+.button-second {
+	color: rgb(255, 255, 255);
+	background-color: rgb(48, 46, 46);
+}
+.button:hover {
+	opacity: 90%;
 }
 
 .filter {

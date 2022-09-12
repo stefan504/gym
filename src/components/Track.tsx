@@ -1,18 +1,28 @@
 import React from 'react';
 import './Track.css';
-const Track = ({ filteredState, track, setTrack }) => {
-	const deleteTrack = (e, id) => {
-		e.preventDefault();
 
-		const newTrack = track.filter((trac) => trac.id !== id);
+type FilteredStateTypes = {
+	filteredState: Array<Object> | null;
+	track: Array<Object>;
+	setTrack: Function;
+};
+
+const Track: React.FC<FilteredStateTypes> = ({
+	filteredState,
+	track,
+	setTrack,
+}) => {
+	console.log(typeof filteredState);
+	const deleteTrack = (e: any, id: string) => {
+		e.preventDefault();
+		const newTrack = track.filter((trac: any) => trac.id !== id);
 		setTrack(newTrack);
-		console.log(track);
 	};
 
 	if (filteredState === null) {
 		return (
 			<div className="track">
-				{track.map((trac) => {
+				{track.map((trac: any) => {
 					return (
 						<div
 							key={Math.floor(Math.random() * 120000)}
@@ -53,7 +63,7 @@ const Track = ({ filteredState, track, setTrack }) => {
 	} else if (filteredState.length > 0) {
 		return (
 			<div className="track">
-				{filteredState.map((filter) => {
+				{filteredState.map((filter: any) => {
 					return (
 						<div
 							key={Math.floor(Math.random() * 120000)}
@@ -95,6 +105,7 @@ const Track = ({ filteredState, track, setTrack }) => {
 			</div>
 		);
 	}
+	return null;
 };
 
 export default Track;

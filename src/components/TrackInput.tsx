@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { muscleGroupOptions } from '../constants/muscleExerciseSpecs';
 
-const TrackInput = ({ setFilteredState, track, setTrack }) => {
+type FilteredStateTypes = {
+	track: Array<Object>;
+	setTrack: Function;
+	setFilteredState: Function;
+};
+
+const TrackInput: React.FC<FilteredStateTypes> = ({
+	setFilteredState,
+	track,
+	setTrack,
+}) => {
 	const [muscleGroup, setMuscleGroup] = useState(muscleGroupOptions[0].name);
 	const [currentExercise, setCurrentExercise] = useState(
 		muscleGroupOptions[0].exercises[0]
@@ -23,7 +33,7 @@ const TrackInput = ({ setFilteredState, track, setTrack }) => {
 
 	const [error, setError] = useState('');
 
-	const handleSubmit = (e) => {
+	const handleSubmit = (e: any) => {
 		if (
 			sets === '' ||
 			reps === '' ||
@@ -62,35 +72,35 @@ const TrackInput = ({ setFilteredState, track, setTrack }) => {
 	}, [track]);
 
 	const data = localStorage.getItem('track');
-	const data2 = JSON.parse(data);
+	const data2 = JSON.parse(data || '');
 	useEffect(() => {
 		setTrack(data2);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	//
 
-	const selectOnChange = (e) => {
+	const selectOnChange = (e: any) => {
 		setMuscleGroup(e.target.value);
 		setCurrentExercise(e.target.value);
 	};
 
-	const exerciseOnChange = (e) => {
+	const exerciseOnChange = (e: any) => {
 		setCurrentExercise(e.target.value);
 	};
 
-	const repsOnChange = (e) => {
+	const repsOnChange = (e: any) => {
 		setReps(e.target.value);
 	};
 
-	const weightOnChange = (e) => {
+	const weightOnChange = (e: any) => {
 		setWeight(e.target.value);
 	};
 
-	const dateOnChange = (e) => {
+	const dateOnChange = (e: any) => {
 		setDate(e.target.value);
 	};
 
-	const setsOnChange = (e) => {
+	const setsOnChange = (e: any) => {
 		setSets(e.target.value);
 	};
 
@@ -113,8 +123,8 @@ const TrackInput = ({ setFilteredState, track, setTrack }) => {
 			);
 		});
 	};
-	const addFilter = (group) => {
-		const filter = track.filter((trac) => trac.muscleGroup === group);
+	const addFilter = (group: any) => {
+		const filter = track.filter((trac: any) => trac.muscleGroup === group);
 
 		if (filter.length === 0) return;
 		setFilteredState(filter);
