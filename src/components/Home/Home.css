@@ -1,33 +1,44 @@
+.container {
+	width: 100%;
+	background-color: rgb(0, 0, 0);
+}
 .home-container {
 	height: 90vh;
 	background-image: url('/src/img/anastase-maragos-9dzWZQWZMdE-unsplash.jpg');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0 16px 0 16px;
 }
 .home-text {
-	position: absolute;
-	top: 40%;
-	left: 20%;
+	margin: 0 auto 30vh auto;
+
 	color: #fff;
 }
 .home-text h1 {
 	margin: 0;
 	font-size: 4rem;
+	letter-spacing: 0.2rem;
+}
+.yellow-letters {
+	color: rgb(255, 245, 0);
 }
 
 .button-container {
-	margin-top: 50px;
+	margin-top: 40px;
 }
 
 .button {
-	font-weight: 600;
+	font-weight: 700;
 	text-decoration: none;
 	color: rgb(0, 0, 0);
 	border-radius: 2px;
-	margin-left: 1rem;
+	margin-right: 1rem;
 	padding: 1rem;
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(255, 245, 0);
 }
 .button-second {
 	color: rgb(255, 255, 255);
@@ -65,4 +76,27 @@
 }
 #clear {
 	background-color: rgb(216, 48, 48);
+}
+
+@media (max-width: 410px) {
+	.home-text {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+	.home-text h1 {
+		font-size: 15vw;
+	}
+}
+@media (max-width: 369px) {
+	.button-container {
+		display: flex;
+		flex-direction: column;
+		width: 80%;
+	}
+	.button {
+		margin-bottom: 4px;
+		margin-right: 0;
+	}
 }
