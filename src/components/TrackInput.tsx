@@ -12,34 +12,34 @@ const TrackInput: React.FC<FilteredStateTypes> = ({
 	track,
 	setTrack,
 }) => {
-	const [muscleGroup, setMuscleGroup] = useState(muscleGroupOptions[0].name);
-	const [currentExercise, setCurrentExercise] = useState(
-		muscleGroupOptions[0].exercises[0]
-	);
+	const [exerciseNumbers, setExerciseNumbers] = useState({
+		sets: '',
+		reps: '',
+		weight: '',
+		muscleGroup: muscleGroupOptions[0].name,
+		currentExercise: muscleGroupOptions[0].exercises[0],
+	});
 	const [exerciseList, setExerciseList] = useState([
 		...muscleGroupOptions[0].exercises,
 	]);
 
 	useEffect(() => {
 		const filteredExercise = muscleGroupOptions.filter((muscle) => {
-			return muscleGroup === muscle.name;
+			return exerciseNumbers.muscleGroup === muscle.name;
 		});
-		setExerciseList(filteredExercise[0].exercises);
-	}, [muscleGroup, exerciseList]);
+		setExerciseList(filteredExercise[0]?.exercises);
+	}, [exerciseNumbers.muscleGroup, exerciseList]);
 	const [date, setDate] = useState('');
-	const [weight, setWeight] = useState('');
-	const [sets, setSets] = useState('');
-	const [reps, setReps] = useState('');
 
 	const [error, setError] = useState('');
 
 	const handleSubmit = (e: any) => {
 		if (
-			sets === '' ||
-			reps === '' ||
+			exerciseNumbers.sets === '' ||
+			exerciseNumbers.reps === '' ||
 			date === '' ||
-			weight === '' ||
-			currentExercise === ''
+			exerciseNumbers.weight === '' ||
+			exerciseNumbers.currentExercise === ''
 		) {
 			e.preventDefault();
 			setError('All fields required.');
@@ -50,19 +50,22 @@ const TrackInput: React.FC<FilteredStateTypes> = ({
 		setTrack([
 			{
 				date: date,
-				weight: weight,
-				reps: reps,
-				sets: sets,
-				exercise: currentExercise,
-				muscleGroup: muscleGroup,
+				weight: exerciseNumbers.weight,
+				reps: exerciseNumbers.reps,
+				sets: exerciseNumbers.sets,
+				exercise: exerciseNumbers.currentExercise,
+				muscleGroup: exerciseNumbers.muscleGroup,
 				id: Math.floor(Math.random() * 10000),
 			},
 			...track,
 		]);
 
-		setSets('');
-		setReps('');
-		setWeight('');
+		setExerciseNumbers({
+			...exerciseNumbers,
+			sets: '',
+			reps: '',
+			weight: '',
+		});
 		setDate('');
 	};
 
@@ -79,29 +82,15 @@ const TrackInput: React.FC<FilteredStateTypes> = ({
 	}, []);
 	//
 
-	const selectOnChange = (e: any) => {
-		setMuscleGroup(e.target.value);
-		setCurrentExercise(e.target.value);
-	};
-
-	const exerciseOnChange = (e: any) => {
-		setCurrentExercise(e.target.value);
-	};
-
-	const repsOnChange = (e: any) => {
-		setReps(e.target.value);
-	};
-
-	const weightOnChange = (e: any) => {
-		setWeight(e.target.value);
-	};
-
 	const dateOnChange = (e: any) => {
 		setDate(e.target.value);
 	};
 
-	const setsOnChange = (e: any) => {
-		setSets(e.target.value);
+	const exerciseNumbersOnChange = (e: any) => {
+		setExerciseNumbers((curr) => ({
+			...curr,
+			[e.target.name]: e.target.value,
+		}));
 	};
 
 	const renderExercisesPerMuscle = () => {
@@ -154,35 +143,50 @@ const TrackInput: React.FC<FilteredStateTypes> = ({
 					<div className="input">
 						<label htmlFor="muscle-group">Muscle group: </label>
 						<select
-							value={muscleGroup}
-							onChange={selectOnChange}
-							name="muscle-group"
+							value={exerciseNumbers.muscleGroup}
+							onChange={exerciseNumbersOnChange}
+							name="muscleGroup"
 						>
 							{/* MAP ALL OF THE BODY PARTS */}
-							{muscleGroup && renderMuscles()}
+							{exerciseNumbers.muscleGroup && renderMuscles()}
 						</select>
 					</div>
 					<div className="input">
 						<label>Exercise </label>
 						<select
-							onChange={exerciseOnChange}
-							value={currentExercise}
-							name="Exercise"
+							onChange={exerciseNumbersOnChange}
+							value={exerciseNumbers.currentExercise}
+							name="currentExercise"
 						>
-							{muscleGroup && renderExercisesPerMuscle()}
+							{exerciseNumbers.muscleGroup && renderExercisesPerMuscle()}
 						</select>
 					</div>
 					<div className="input">
 						<label>Weight(kg): </label>
-						<input onChange={weightOnChange} value={weight} type="number" />
+						<input
+							onChange={exerciseNumbersOnChange}
+							name="weight"
+							value={exerciseNumbers.weight}
+							type="number"
+						/>
 					</div>
 					<div className="input">
 						<label>Sets: </label>
-						<input onChange={setsOnChange} value={sets} type="number" />
+						<input
+							onChange={exerciseNumbersOnChange}
+							name="sets"
+							value={exerciseNumbers.sets}
+							type="number"
+						/>
 					</div>
 					<div className="input">
 						<label>Reps: </label>
-						<input onChange={repsOnChange} type="number" value={reps} />
+						<input
+							onChange={exerciseNumbersOnChange}
+							name="reps"
+							type="number"
+							value={exerciseNumbers.reps}
+						/>
 					</div>
 					<div className="submit">
 						<input type="submit" value="Submit" />
@@ -191,13 +195,13 @@ const TrackInput: React.FC<FilteredStateTypes> = ({
 				<div className="filter">
 					<h2>Filter by:</h2>
 					<div className="grid">
-						{/* MAP ALL OF THE BODY PARTS */}
-						<button onClick={() => addFilter('Chest')}>Chest</button>
-						<button onClick={() => addFilter('Back')}>Back</button>
-						<button onClick={() => addFilter('Legs')}>Legs</button>
-						<button onClick={() => addFilter('Bicep')}>Bicep</button>
-						<button onClick={() => addFilter('Tricep')}>Tricep</button>
-						<button onClick={() => addFilter('Shoulders')}>Shoulders</button>
+						{muscleGroupOptions.map((muscleName) => {
+							return (
+								<button onClick={() => addFilter(muscleName.name)}>
+									{muscleName.name}
+								</button>
+							);
+						})}
 						<button id="clear" onClick={clearFilters}>
 							Clear
 						</button>
