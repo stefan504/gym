@@ -12,7 +12,6 @@ const Track: React.FC<FilteredStateTypes> = ({
 	track,
 	setTrack,
 }) => {
-	console.log(typeof filteredState);
 	const deleteTrack = (e: any, id: string) => {
 		e.preventDefault();
 		const newTrack = track.filter((trac: any) => trac.id !== id);

@@ -87,8 +87,8 @@ const TrackInput: React.FC<FilteredStateTypes> = ({
 	};
 
 	const exerciseNumbersOnChange = (e: any) => {
-		setExerciseNumbers((curr) => ({
-			...curr,
+		setExerciseNumbers((current) => ({
+			...current,
 			[e.target.name]: e.target.value,
 		}));
 	};
