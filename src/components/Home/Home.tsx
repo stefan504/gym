@@ -13,7 +13,7 @@ const Home = () => {
 						<br></br>MAKE <span className="yellow-letters">GAINS</span>.
 					</h1>
 					<div className="button-container">
-						<Link className="button" to="/tracker">
+						<Link className="button" to="/plans">
 							Workout Plans
 						</Link>
 						<Link className="button button-second" to="/tracker">

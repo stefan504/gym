@@ -20,7 +20,7 @@
 }
 .home-text h1 {
 	margin: 0;
-	font-size: 4rem;
+	font-size: 6rem;
 	letter-spacing: 0.2rem;
 }
 .yellow-letters {
@@ -33,6 +33,7 @@
 
 .button {
 	font-weight: 700;
+	font-size: 1.6rem;
 	text-decoration: none;
 	color: rgb(0, 0, 0);
 	border-radius: 2px;
@@ -45,7 +46,7 @@
 	background-color: rgb(48, 46, 46);
 }
 .button:hover {
-	opacity: 90%;
+	box-shadow: 5px 5px 25px rgb(48, 48, 48);
 }
 
 .filter {
@@ -78,6 +79,14 @@
 	background-color: rgb(216, 48, 48);
 }
 
+@media (max-width: 1200px) {
+	.home-text h1 {
+		font-size: 5rem;
+	}
+	.button {
+		font-size: 1.2rem;
+	}
+}
 @media (max-width: 410px) {
 	.home-text {
 		display: flex;
@@ -86,9 +95,10 @@
 		text-align: center;
 	}
 	.home-text h1 {
-		font-size: 15vw;
+		font-size: 13vw;
 	}
 }
+
 @media (max-width: 369px) {
 	.button-container {
 		display: flex;
