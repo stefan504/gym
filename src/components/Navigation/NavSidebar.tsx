@@ -13,7 +13,7 @@ const NavSidebar = () => {
 	const closeMenu = () => {
 		setMenuOpen(false);
 	};
-	console.log(menuOpen);
+
 	return (
 		<nav className="nav">
 			<Link to="/" className="logo-container"></Link>

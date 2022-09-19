@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { muscleGroupOptions } from '../constants/muscleExerciseSpecs';
+import { muscleGroupOptions } from '../../constants/muscleExerciseSpecs';
 
 type FilteredStateTypes = {
 	track: Array<Object>;

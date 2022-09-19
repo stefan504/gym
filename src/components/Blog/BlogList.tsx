@@ -1,5 +1,3 @@
-import React from 'react';
-
 type BlogFields = {
 	id: string;
 	webUrl: string;

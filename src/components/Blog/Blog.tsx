@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import BlogList from './BlogList';
+import BlogList from '../Blog/BlogList';
 import './Blog.css';
 const About = () => {
 	const API = {

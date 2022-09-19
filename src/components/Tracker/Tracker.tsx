@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Track from './Track';
-import TrackInput from './TrackInput';
+import { useState } from 'react';
+import Track from '../Track/Track';
+import TrackInput from '../Track/TrackInput';
 import './Tracker.css';
 const Tracker = () => {
 	const [filteredState, setFilteredState] = useState(null);
