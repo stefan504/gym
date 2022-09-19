@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 .form-container {
 	min-height: 90vh;
+	font-family: 'Poppins', sans-serif;
 }
 .background {
 	width: auto;
@@ -109,6 +111,7 @@ button {
 }
 .social div:hover {
 	background-color: rgba(255, 255, 255, 0.47);
+	cursor: pointer;
 }
 .social .fb {
 	margin-left: 25px;
