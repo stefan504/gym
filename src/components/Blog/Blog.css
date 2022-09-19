@@ -44,3 +44,44 @@
 .article-container img:hover {
 	filter: brightness(100%);
 }
+@media (max-width: 800px) {
+	.article {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.about-text {
+		width: 85%;
+	}
+	.home-text h1 {
+		margin: 0;
+		font-size: 2rem;
+	}
+	.track-container {
+		padding: 0.4rem 1rem;
+		margin: 15px;
+	}
+	.track-container h2 {
+		font-size: 1.3rem;
+	}
+	.delete {
+		position: relative;
+		top: 0;
+		left: 90%;
+	}
+}
+@media (max-width: 545px) {
+	.article-container {
+		min-height: auto;
+	}
+	.blog-container {
+		padding: 0 15px;
+	}
+	.article {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.filter h2 {
+		font-size: 1rem;
+	}
+	.filter {
+		flex-direction: column;
+	}
+}

@@ -9,6 +9,7 @@ const LoginForm = () => {
 			<h3>Login Here</h3>
 			<label htmlFor="email">Email</label>
 			<input
+				className="login-input"
 				type="email"
 				placeholder="Email or Phone"
 				id="email"
@@ -17,6 +18,7 @@ const LoginForm = () => {
 
 			<label htmlFor="password">Password</label>
 			<input
+				className="login-input"
 				type="password"
 				placeholder="Password"
 				id="password"
@@ -32,9 +34,6 @@ const LoginForm = () => {
 			<div className="social">
 				<div className="go">
 					<i className="fab fa-google"></i> Google
-				</div>
-				<div className="fb">
-					<i className="fab fa-facebook"></i> Facebook
 				</div>
 			</div>
 		</form>

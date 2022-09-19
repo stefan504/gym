@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 .form-container {
+	background-color: rgb(0, 0, 0);
 	min-height: 90vh;
 	font-family: 'Poppins', sans-serif;
 }
@@ -28,7 +29,7 @@
 	right: -30px;
 	bottom: -80px;
 }
-form {
+.form {
 	height: 520px;
 	width: 400px;
 	background-color: rgba(255, 255, 255, 0.13);
@@ -42,21 +43,21 @@ form {
 	box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
 	padding: 50px 35px;
 }
-form * {
+.form * {
 	font-family: 'Poppins', sans-serif;
 	color: #ffffff;
 	letter-spacing: 0.5px;
 	outline: none;
 	border: none;
 }
-form h3 {
+.form h3 {
 	font-size: 32px;
 	font-weight: 500;
 	line-height: 42px;
 	text-align: center;
 }
 
-label {
+.form label {
 	display: block;
 	margin-top: 30px;
 	font-size: 16px;
@@ -69,7 +70,7 @@ label {
 	color: rgb(196, 25, 25);
 	font-weight: 600;
 }
-input {
+.login-input {
 	display: block;
 	height: 50px;
 	width: 100%;
@@ -85,7 +86,7 @@ input {
 	color: #e5e5e5;
 }
 
-button {
+.form-submit {
 	margin-top: 20px;
 	width: 100%;
 	background-color: rgb(255, 255, 0);
@@ -97,13 +98,13 @@ button {
 	cursor: pointer;
 }
 .social {
-	margin-top: 30px;
+	margin-top: 12px;
 	display: flex;
 }
 .social div {
 	background: red;
 	width: 100%;
-	border-radius: 3px;
+	border-radius: 5px;
 	padding: 15px 10px 15px 10px;
 	background-color: rgba(255, 255, 255, 0.27);
 	color: #eaf0fb;
@@ -121,7 +122,7 @@ button {
 }
 
 @media (max-width: 600px) {
-	form {
+	.form {
 		width: 70%;
 	}
 }

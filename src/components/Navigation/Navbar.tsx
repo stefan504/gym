@@ -6,7 +6,6 @@ import Footer from '../Footer/Footer';
 import Blog from '../Blog/Blog';
 import NavSidebar from './NavSidebar';
 import Login from '../Login/Login';
-import SignUp from '../SignUp/SignUp';
 
 const Navbar = () => {
 	return (
@@ -23,11 +22,8 @@ const Navbar = () => {
 					<Route path="/tracker">
 						<Tracker />
 					</Route>
-					<Route path="/login">
+					<Route path="/identity">
 						<Login />
-					</Route>
-					<Route path="/signup">
-						<SignUp />
 					</Route>
 					<Route path="/">
 						<Home />

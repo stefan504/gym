@@ -30,7 +30,7 @@ const NavSidebar = () => {
 							<Link to="/tracker">Tracker</Link>
 						</li>
 						<li className="list-items">
-							<Link to="/login">Log In</Link>
+							<Link to="/identity">Log In</Link>
 						</li>
 					</ul>
 				</Menu>
@@ -46,7 +46,7 @@ const NavSidebar = () => {
 						<Link to="/tracker">Tracker</Link>
 					</li>
 					<li className="list-items">
-						<Link to="/login">Log In</Link>
+						<Link to="/identity">Log In</Link>
 					</li>
 				</ul>
 			)}
