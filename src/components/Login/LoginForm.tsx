@@ -1,9 +1,29 @@
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 import './Login.css';
 
-const LoginForm = () => {
-	const { register, handleSubmit } = useForm();
-	const onSubmit = (data: any) => console.log(data);
+interface IFormInput {
+	email: string;
+	password: string;
+}
+
+const LoginForm = ({
+	setUserCredentials,
+	userCredentials,
+}: {
+	setUserCredentials: any;
+	userCredentials: any;
+}) => {
+	const { register, handleSubmit } = useForm<IFormInput>();
+	const onSubmit = (data: any) => {
+		console.log(data);
+		setUserCredentials({
+			...userCredentials,
+			email: data.email,
+			password: data.password,
+		});
+	};
+
 	return (
 		<form className="form" onSubmit={handleSubmit(onSubmit)}>
 			<h3>Login Here</h3>
