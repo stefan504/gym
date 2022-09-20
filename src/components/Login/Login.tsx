@@ -1,7 +1,7 @@
 import './Login.css';
 import LoginForm from './LoginForm';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Redirect } from 'react-router-dom';
 import {
 	getAuth,
 	signInWithEmailAndPassword,
@@ -11,6 +11,7 @@ import SignUpForm from './SignUpForm';
 
 function Login() {
 	const auth = getAuth();
+	const user = auth.currentUser;
 	const [userCredentials, setUserCredentials] = useState({
 		email: '',
 		password: '',
@@ -24,6 +25,7 @@ function Login() {
 	)
 		.then((userCredential) => {
 			const user = userCredential.user;
+			console.log(user);
 		})
 		.catch((error) => {
 			const errorCode = error.code;
@@ -32,8 +34,6 @@ function Login() {
 
 	onAuthStateChanged(auth, (user) => {
 		if (user) {
-			setUserCredentials({ ...userCredentials, isLoggedIn: true });
-			console.log('HE IS LOGGED IN');
 			// https://firebase.google.com/docs/reference/js/firebase.User
 			return <Link to="/" />;
 		} else {
@@ -42,8 +42,8 @@ function Login() {
 	});
 
 	const isMember = false;
-
-	return (
+	console.log(user);
+	return user ? (
 		<div className="form-container">
 			<div className="background">
 				<div className="shape"></div>
@@ -61,6 +61,10 @@ function Login() {
 				/>
 			)}
 		</div>
+	) : (
+		<Route exact path="/identity">
+			<Redirect to="/" />
+		</Route>
 	);
 }
 export default Login;

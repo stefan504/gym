@@ -1,12 +1,6 @@
-import {
-	getAuth,
-	createUserWithEmailAndPassword,
-	onAuthStateChanged,
-} from 'firebase/auth';
-import { useState } from 'react';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { useForm } from 'react-hook-form';
 import './Login.css'; // make seperate css file for signupform tsx
-import { Link } from 'react-router-dom';
 
 interface IFormInput {
 	email: string;
@@ -47,21 +41,6 @@ const LoginForm = ({
 			const errorCode = error.code;
 			const errorMessage = error.message;
 		});
-
-	onAuthStateChanged(auth, (user) => {
-		if (user) {
-			console.log('HE IS LOGGED IN');
-			// User is signed in, see docs for a list of available properties
-			// https://firebase.google.com/docs/reference/js/firebase.User
-			return <Link to="" />;
-			// ...
-		} else {
-			console.log('HE IS LOGGED OUT');
-
-			// User is signed out
-			// ...
-		}
-	});
 
 	return (
 		<form className="form" onSubmit={handleSubmit(onSubmit)}>

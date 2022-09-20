@@ -1,19 +1,14 @@
 import './App.css';
-import * as firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
-import { firebaseConfig } from './firebaseSDK';
 import Navbar from './components/Navigation/Navbar';
-try {
-	firebase.initializeApp(firebaseConfig);
-} catch (e) {
-	console.log(e);
-}
+import { AuthProvider } from './AuthenticationContext';
+
 function App() {
 	return (
-		<div id="App">
-			<Navbar />
-		</div>
+		<AuthProvider>
+			<div id="App">
+				<Navbar />
+			</div>
+		</AuthProvider>
 	);
 }
 

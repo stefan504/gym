@@ -8,7 +8,6 @@ import NavSidebar from './NavSidebar';
 import Login from '../Login/Login';
 
 const Navbar = () => {
-	console.log(process.env.GOOGLE_API_KEY);
 	return (
 		<Router>
 			<NavSidebar />
