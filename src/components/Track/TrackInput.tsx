@@ -47,18 +47,31 @@ const TrackInput: React.FC<FilteredStateTypes> = ({
 			return;
 		}
 		e.preventDefault();
-		setTrack([
-			{
-				date: date,
-				weight: exerciseNumbers.weight,
-				reps: exerciseNumbers.reps,
-				sets: exerciseNumbers.sets,
-				exercise: exerciseNumbers.currentExercise,
-				muscleGroup: exerciseNumbers.muscleGroup,
-				id: Math.floor(Math.random() * 10000),
-			},
-			...track,
-		]);
+
+		track.length > 0
+			? setTrack([
+					{
+						date: date,
+						weight: exerciseNumbers.weight,
+						reps: exerciseNumbers.reps,
+						sets: exerciseNumbers.sets,
+						exercise: exerciseNumbers.currentExercise,
+						muscleGroup: exerciseNumbers.muscleGroup,
+						id: Math.floor(Math.random() * 10000),
+					},
+					...track,
+			  ])
+			: setTrack([
+					{
+						date: date,
+						weight: exerciseNumbers.weight,
+						reps: exerciseNumbers.reps,
+						sets: exerciseNumbers.sets,
+						exercise: exerciseNumbers.currentExercise,
+						muscleGroup: exerciseNumbers.muscleGroup,
+						id: Math.floor(Math.random() * 10000),
+					},
+			  ]);
 
 		setExerciseNumbers({
 			...exerciseNumbers,
