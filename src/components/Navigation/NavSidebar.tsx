@@ -9,7 +9,6 @@ import './Navbar.css';
 const NavSidebar = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const { user } = useContext(AuthContext);
-	console.log(user);
 	const isMobile = useMediaQuery({
 		query: '(max-width: 700px)',
 	});

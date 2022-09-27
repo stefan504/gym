@@ -69,8 +69,6 @@ const TrackInput: React.FC<FilteredStateTypes> = ({
 		setDate('');
 	};
 
-	// LOCAL STORAGE SETUP
-
 	const dateOnChange = (e: any) => {
 		setDate(e.target.value);
 	};

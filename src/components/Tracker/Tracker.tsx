@@ -5,18 +5,17 @@ import './Tracker.css';
 const Tracker = () => {
 	const [filteredState, setFilteredState] = useState(null);
 	const [track, setTrack] = useState([]);
+	// LOCAL STORAGE SETUP
 	useEffect(() => {
-		localStorage.setItem('track', JSON.stringify(track));
+		localStorage.setItem('track', JSON.stringify(track || []));
 	}, [track]);
 
-	const data = localStorage.getItem('track');
+	const data: any = localStorage.getItem('track');
+	const data2 = JSON.parse(data);
 	useEffect(() => {
-		console.log(data);
-		const data2 = JSON.parse(data!);
 		setTrack(data2);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	//
 
 	return (
 		<>
