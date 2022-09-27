@@ -70,17 +70,6 @@ const TrackInput: React.FC<FilteredStateTypes> = ({
 	};
 
 	// LOCAL STORAGE SETUP
-	useEffect(() => {
-		localStorage.setItem('track', JSON.stringify(track));
-	}, [track]);
-
-	const data = localStorage.getItem('track');
-	const data2 = JSON.parse(data || '');
-	useEffect(() => {
-		setTrack(data2);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
-	//
 
 	const dateOnChange = (e: any) => {
 		setDate(e.target.value);

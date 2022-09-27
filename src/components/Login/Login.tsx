@@ -43,7 +43,7 @@ function Login() {
 
 	const isMember = false;
 	console.log(user);
-	return user ? (
+	return !user ? (
 		<div className="form-container">
 			<div className="background">
 				<div className="shape"></div>

@@ -21,7 +21,7 @@ const Track: React.FC<FilteredStateTypes> = ({
 	if (filteredState === null) {
 		return (
 			<div className="track">
-				{track.map((trac: any) => {
+				{track?.map((trac: any) => {
 					return (
 						<div
 							key={Math.floor(Math.random() * 120000)}
