@@ -17,7 +17,7 @@
 	width: 200px;
 	position: absolute;
 	border-radius: 50%;
-	opacity: 20%;
+	opacity: 0.2;
 }
 .shape:first-child {
 	background: linear-gradient(#1845ad, #23a2f6);
