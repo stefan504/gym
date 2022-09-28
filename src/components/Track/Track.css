@@ -28,7 +28,7 @@
 .body-image {
 	object-fit: contain;
 	border-radius: 10px;
-
+	margin-top: 7px;
 	height: 100%;
 	width: 100%;
 }
