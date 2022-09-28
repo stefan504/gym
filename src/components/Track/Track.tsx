@@ -1,5 +1,6 @@
 import React from 'react';
 import './Track.css';
+import chestImage from '../../img/chest1.png';
 
 type FilteredStateTypes = {
 	filteredState: Array<Object> | null;
@@ -28,31 +29,37 @@ const Track: React.FC<FilteredStateTypes> = ({
 						key={Math.floor(Math.random() * 120000)}
 						className="track-container"
 					>
-						<span onClick={(e) => deleteTrack(e, trac.id)} className="delete">
-							&#10005;
-						</span>
-						<span className="color"></span>
-						<div className="info">
-							<h2>
-								Muscle group: <span className="color">{trac.muscleGroup}</span>
-							</h2>
-							<h3>
-								Exercise: <span className="color">{trac.exercise}</span>
-							</h3>
-							<h4>
-								Weight: <span className="color">{trac.weight}kg</span>
-							</h4>
-							<p>
-								Sets: <span className="color">{trac.sets}</span>
-							</p>
-							<p>
-								Reps: <span className="color">{trac.reps}</span>
-							</p>
+						<div className="image-container">
+							<img className="body-image" src={chestImage} alt="" />
+							<span onClick={(e) => deleteTrack(e, trac.id)} className="delete">
+								&#10005;
+							</span>
 						</div>
-						<div className="date">
-							<h3>
-								<span className="color">{trac.date}</span>
-							</h3>
+
+						<div className="info">
+							<div className="exercise-info">
+								<h2>
+									Muscle group:{' '}
+									<span className="color">{trac.muscleGroup}</span>
+								</h2>
+								<h3>
+									Exercise: <span className="color">{trac.exercise}</span>
+								</h3>
+								<h4>
+									Weight: <span className="color">{trac.weight}kg</span>
+								</h4>
+								<p>
+									Sets: <span className="color">{trac.sets}</span>
+								</p>
+								<p>
+									Reps: <span className="color">{trac.reps}</span>
+								</p>
+							</div>
+							<div className="date">
+								<h3>
+									<span className="color">{trac.date}</span>
+								</h3>
+							</div>
 						</div>
 					</div>
 				);

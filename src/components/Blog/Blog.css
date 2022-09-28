@@ -56,16 +56,13 @@
 		font-size: 2rem;
 	}
 	.track-container {
-		padding: 0.4rem 1rem;
 		margin: 15px;
 	}
 	.track-container h2 {
 		font-size: 1.3rem;
 	}
-	.delete {
-		position: relative;
-		top: 0;
-		left: 90%;
+	.info {
+		margin: 0.4rem 1rem;
 	}
 }
 @media (max-width: 545px) {

@@ -1,18 +1,39 @@
 .track-container {
 	background-color: rgba(0, 0, 0, 0.7);
-	border: 2px solid white;
-	box-shadow: 1px 2px 6px rgb(153, 153, 153);
+	border-radius: 20px;
+	border: 0.2px solid rgb(23, 23, 23);
 	display: flex;
 	justify-content: space-between;
+	flex-direction: column;
 	margin: 30px;
-	padding: 1rem 5rem;
+	letter-spacing: 0;
+}
+.info {
+	display: flex;
+	justify-content: space-between;
+	margin: 1rem 5rem;
+}
+.image-container {
+	position: relative;
+	display: flex;
+
+	height: 100px;
+	width: 100%;
+}
+.body-image {
+	object-fit: contain;
+	border-radius: 10px;
+
+	height: 100%;
+	width: 100%;
 }
 
 .delete {
-	position: relative;
+	position: absolute;
+	left: 0;
 	top: 0;
-	left: 115%;
 	cursor: pointer;
+	padding: 15px 15px 5px 15px;
 }
 
 .date {
