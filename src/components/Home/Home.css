@@ -78,7 +78,8 @@
 	grid-template-columns: repeat(3, 1fr);
 }
 #clear {
-	background-color: rgb(216, 48, 48);
+	background-color: rgb(255, 255, 0);
+	color: black;
 }
 
 @media (max-width: 1200px) {

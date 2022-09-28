@@ -10,7 +10,7 @@
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
-	margin: 30px;
+	margin: 0px 5px 10px 5px;
 	letter-spacing: 0;
 }
 .info {
@@ -58,7 +58,7 @@
 }
 
 .color {
-	color: rgb(226, 48, 48);
+	color: rgb(255, 255, 0);
 }
 @media (max-width: 545px) {
 	.track {
