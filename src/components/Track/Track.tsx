@@ -1,6 +1,6 @@
 import React from 'react';
 import './Track.css';
-import chestImage from '../../img/chest1.png';
+import images from '../../constants/images';
 
 type FilteredStateTypes = {
 	filteredState: Array<Object> | null;
@@ -18,6 +18,19 @@ const Track: React.FC<FilteredStateTypes> = ({
 		const newTrack = track.filter((trac: any) => trac.id !== id);
 		setTrack(newTrack);
 	};
+	const handleImage = (bodyPart: any) => {
+		return images
+			.filter((filteredImg) => filteredImg.title === bodyPart)
+			.map((img) => (
+				<img
+					className="body-image"
+					key={img.id}
+					src={img.src}
+					title={img.title}
+					alt={img.description}
+				/>
+			));
+	};
 
 	const isFiltered = filteredState === null ? track : filteredState;
 
@@ -30,7 +43,7 @@ const Track: React.FC<FilteredStateTypes> = ({
 						className="track-container"
 					>
 						<div className="image-container">
-							<img className="body-image" src={chestImage} alt="" />
+							{handleImage(trac.muscleGroup)}
 							<span onClick={(e) => deleteTrack(e, trac.id)} className="delete">
 								&#10005;
 							</span>
