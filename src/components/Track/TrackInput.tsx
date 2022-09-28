@@ -159,7 +159,7 @@ const TrackInput: React.FC<FilteredStateTypes> = ({
 					</div>
 				</form>
 				<div className="filter">
-					<h2>Filter by:</h2>
+					<h2>Filter:</h2>
 					<div className="grid">
 						{muscleGroupOptions.map((muscleName) => {
 							return (
