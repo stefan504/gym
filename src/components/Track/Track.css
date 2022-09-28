@@ -1,3 +1,8 @@
+.track {
+	display: grid;
+	width: auto;
+	grid-template-columns: auto auto;
+}
 .track-container {
 	background-color: rgba(0, 0, 0, 0.7);
 	border-radius: 20px;
@@ -11,7 +16,7 @@
 .info {
 	display: flex;
 	justify-content: space-between;
-	margin: 1rem 5rem;
+	margin: 1rem 3.3rem;
 }
 .image-container {
 	position: relative;
@@ -54,4 +59,11 @@
 
 .color {
 	color: rgb(226, 48, 48);
+}
+@media (max-width: 545px) {
+	.track {
+		display: grid;
+		width: auto;
+		grid-template-columns: auto;
+	}
 }

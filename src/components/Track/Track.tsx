@@ -45,15 +45,15 @@ const Track: React.FC<FilteredStateTypes> = ({
 								<h3>
 									Exercise: <span className="color">{trac.exercise}</span>
 								</h3>
-								<h4>
+								<h3>
 									Weight: <span className="color">{trac.weight}kg</span>
-								</h4>
-								<p>
+								</h3>
+								<h3>
 									Sets: <span className="color">{trac.sets}</span>
-								</p>
-								<p>
+								</h3>
+								<h3>
 									Reps: <span className="color">{trac.reps}</span>
-								</p>
+								</h3>
 							</div>
 							<div className="date">
 								<h3>
