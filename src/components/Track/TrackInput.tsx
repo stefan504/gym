@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { muscleGroupOptions } from '../../constants/muscleExerciseSpecs';
 
+import { useTrackInput } from '../../hooks/useTrackInput';
+
 type FilteredStateTypes = {
 	track: Array<Object>;
 	setTrack: Function;
@@ -12,25 +14,15 @@ const TrackInput: React.FC<FilteredStateTypes> = ({
 	track,
 	setTrack,
 }) => {
-	const [exerciseNumbers, setExerciseNumbers] = useState({
-		sets: '',
-		reps: '',
-		weight: '',
-		muscleGroup: muscleGroupOptions[0].name,
-		currentExercise: muscleGroupOptions[0].exercises[0],
-	});
-	const [exerciseList, setExerciseList] = useState([
-		...muscleGroupOptions[0].exercises,
-	]);
+	const {
+		exerciseNumbers,
+		renderMuscles,
+		renderExercisesPerMuscle,
+		exerciseNumbersOnChange,
+		setExerciseNumbers,
+	} = useTrackInput();
 
-	useEffect(() => {
-		const filteredExercise = muscleGroupOptions.filter((muscle) => {
-			return exerciseNumbers.muscleGroup === muscle.name;
-		});
-		setExerciseList(filteredExercise[0]?.exercises);
-	}, [exerciseNumbers.muscleGroup, exerciseList]);
 	const [date, setDate] = useState('');
-
 	const [error, setError] = useState('');
 
 	const handleSubmit = (e: any) => {
@@ -86,32 +78,6 @@ const TrackInput: React.FC<FilteredStateTypes> = ({
 		setDate(e.target.value);
 	};
 
-	const exerciseNumbersOnChange = (e: any) => {
-		setExerciseNumbers((current) => ({
-			...current,
-			[e.target.name]: e.target.value,
-		}));
-	};
-
-	const renderExercisesPerMuscle = () => {
-		return exerciseList.map((exerciseName) => {
-			return (
-				<option key={exerciseName} value={exerciseName}>
-					{exerciseName}
-				</option>
-			);
-		});
-	};
-
-	const renderMuscles = () => {
-		return muscleGroupOptions.map((muscle) => {
-			return (
-				<option key={muscle.name} value={muscle.name}>
-					{muscle.name}
-				</option>
-			);
-		});
-	};
 	const addFilter = (group: any) => {
 		const filter = track.filter((trac: any) => trac.muscleGroup === group);
 
